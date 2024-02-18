@@ -41,7 +41,7 @@ for id in $(bashio::config "tunnels|keys"); do
   fi
   auth=$(bashio::config "tunnels[${id}].auth")
   if [[ $auth != "null" ]]; then
-    echo "    basic-auth: $auth" >> $configPath
+    echo "    auth: $auth" >> $configPath
   fi
   host_header=$(bashio::config "tunnels[${id}].host_header")
   if [[ $host_header != "null" ]]; then
@@ -53,11 +53,11 @@ for id in $(bashio::config "tunnels|keys"); do
   fi
   subdomain=$(bashio::config "tunnels[${id}].subdomain")
   if [[ $subdomain != "null" ]]; then
-    echo "    domain: $subdomain" >> $configPath
+    echo "    subdomain: $subdomain" >> $configPath
   fi
   hostname=$(bashio::config "tunnels[${id}].hostname")
   if [[ $hostname != "null" ]]; then
-    echo "    domain: $hostname" >> $configPath
+    echo "    hostname: $hostname" >> $configPath
   fi
   crt=$(bashio::config "tunnels[${id}].crt")
   if [[ $crt != "null" ]]; then
